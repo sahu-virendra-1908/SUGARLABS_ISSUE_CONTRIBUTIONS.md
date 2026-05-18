@@ -24,6 +24,10 @@ https://github.com/sugarlabs/musicblocks
 | 9 | _renderTrashView generates invalid data:image/svg+xml URLs when block.artwork is null | UI Rendering / SVG Handling | Trash panel thumbnails failed to render correctly | https://github.com/sugarlabs/musicblocks/issues/7359 |
 | 10 | rationalSum silently swallows zero denominators and returns [0,1], masking corrupted note-duration state in rhythm tracking | Arithmetic Validation / Runtime State Integrity | Division-by-zero state became silently hidden, causing corrupted rhythm timing and debugging difficulty | https://github.com/sugarlabs/musicblocks/issues/7385 |
 | 11 | isSafeUrl defined twice — ActionBlocks.js bypasses centralized URL safety utility, creating silent security inconsistency | Security / URL Validation Consistency | Duplicate validation logic caused inconsistent URL sanitization and potential security drift across modules | https://github.com/sugarlabs/musicblocks/issues/7384 |
+| 12 | Loading a malformed HTML project file crashes project import when expected `<div class="code">` block is missing | Import Validation / Crash Prevention | Malformed project files caused import crashes and interrupted project recovery workflows | https://github.com/sugarlabs/musicblocks/issues/7386 |
+| 13 | Plugin loader keeps injected `<script>` tags in document.head after execution, causing unnecessary DOM and memory growth during long sessions | Plugin Loader / Memory Management | Dynamically injected plugin scripts accumulated in DOM, increasing memory usage over time | https://github.com/sugarlabs/musicblocks/issues/7388 |
+| 14 | loadNewBlocks only detects direct self-loops — multi-block circular connections can trigger recursive stack overflow during project load | Graph Validation / Runtime Stability | Circular block references could recursively overflow the stack and crash project loading | https://github.com/sugarlabs/musicblocks/issues/7391 |
+
 
 ---
 
